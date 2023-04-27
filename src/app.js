@@ -7,6 +7,8 @@ require("./db/conn");
 
 
 const authRoutes = require("./router/auth");
+const sellRoutes = require("./router/sellRoute");
+const cusRoutes = require("./router/custRoute");
 
 const { json } = require("express");
 
@@ -55,6 +57,11 @@ app.get("/user_dash", (req, res) => {
 }) 
 
 app.use(authRoutes);
+app.use(sellRoutes);
+app.use(cusRoutes);
+
+
+
 app.listen(port, () => {
     console.log(`server is running at port no. ${port}`);
 })
